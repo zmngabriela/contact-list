@@ -4,7 +4,7 @@ import Contacts from "../../containers/Contacts"
 const Home = () => {
   return (
     <>
-      <Header />
+      <Header isHome={true}/>
       <Contacts />
     </>
   )

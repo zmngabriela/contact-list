@@ -1,14 +1,17 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { ContactType } from "../../App"
 import { remove } from "../../store/reducers/contacts"
+import ContactClass from "../../models/Contact"
 import * as S from "./styles"
 
+import dots from '../../assets/dots.png'
 import fav from '../../assets/fav.png'
 import nofav from '../../assets/fav.png'
 import minus from '../../assets/minus.png'
 
-const Contact = ({ name, avatar, description }: ContactType) => {
+type Props = ContactClass
+
+const Contact = ({ name, avatar, description }: Props) => {
   const dispatch = useDispatch()
 
   const [isFav, setIsFav] = useState(false)
@@ -19,7 +22,8 @@ const Contact = ({ name, avatar, description }: ContactType) => {
 
   return (
     <S.ContactContainer>
-      <S.ContactStart>
+      <S.ContactStart to={`/contact/${name.replace(/\s+/g, '-').toLowerCase()}`}>
+        <img src={dots} alt="More" id="dots" />
         <img src={avatar} alt="Profile picture" id="avatar" />
         <S.ContactInfo>
           <h2>{name}</h2>

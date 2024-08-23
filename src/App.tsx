@@ -2,8 +2,11 @@ import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { store } from './store'
 import { Container, GlobalStyle } from "./styles";
+
 import Home from "./pages/Home";
-import AddContact from "./pages/AddContact";
+import AddContactPage from "./pages/AddContactPage";
+import ContactInfoPage from "./pages/ContactInfoPage";
+import EditContactPage from "./pages/EditContactPage";
 
 const routes = createBrowserRouter([
   {
@@ -12,17 +15,17 @@ const routes = createBrowserRouter([
   },
   {
     path: '/add',
-    element: <AddContact />
+    element: <AddContactPage />
+  },
+  {
+    path: '/contact/:name',
+    element: <ContactInfoPage />
+  },
+  {
+    path: '/contact/:name/edit',
+    element: <EditContactPage />
   }
 ])
-
-export type ContactType = {
-  name: string
-  email: string
-  phone: string
-  avatar: string
-  description: string
-}
 
 function App() {
   return (

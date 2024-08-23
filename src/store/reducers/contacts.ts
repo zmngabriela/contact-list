@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ContactType } from "../../App";
+import ContactClass from "../../models/Contact";
 
 type ContactsState = {
-    contactsList: ContactType[]
+    contactsList: ContactClass[]
 }
 
 const initialState: ContactsState = {
@@ -35,16 +35,19 @@ const contactsSlice = createSlice({
     name: 'contacts',
     initialState,
     reducers: {
-        add: (state, action: PayloadAction<ContactType>) => {
-        const contactFound = state.contactsList.find((c) => c.name.toLowerCase() === action.payload.name.toLowerCase())
-        if (contactFound) {
-            alert('Contact already added')
-        } else (
+        add: (state, action: PayloadAction<ContactClass>) => {
+        const nameFound = state.contactsList.find((c) => c.name.toLowerCase() === action.payload.name.toLowerCase())
+        const phoneFound = state.contactsList.find((c) => c.phone.toLowerCase() === action.payload.phone.toLowerCase())
+        if (nameFound || phoneFound) {
+            alert('Contact already added.')
+        } else {
             state.contactsList.push(action.payload)
-        )
+            alert('Contact was successfully added.')
+        }
         },
         remove: (state, action: PayloadAction<string>) => {
-          state.contactsList = state.contactsList.find(x => x.name !== action.payload)
+            state.contactsList = state.contactsList.filter(x => x.name !== action.payload)
+            alert('Contact was removed.')
         }
     }
 })

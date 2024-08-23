@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
   display: grid;
   grid-template-columns: 2fr 1fr;
   align-items: center;
+  margin-bottom: 24px;
 
   h1 {
     font-size: 16px;
@@ -22,6 +23,9 @@ export const HeaderActions = styled.div`
       border: none;
       font-weight: bold;
       width: 40px;
+      color: #B7B7B7;
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
     }
 
     img {

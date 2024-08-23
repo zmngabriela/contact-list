@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const ContactContainer = styled.div`
@@ -7,17 +8,30 @@ export const ContactContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 24px;
+  border-radius: 2px;
 `
 
-export const ContactStart = styled.div`
+export const ContactStart = styled(Link)`
   display: flex;
   gap: 20px;
   align-items: center;
   justify-content: start;
 
+  #dots {
+    width: 16px;
+    height: 16px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
   #avatar {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
   }
 `
@@ -27,11 +41,11 @@ export const ContactInfo = styled.div`
   flex-direction: column;
 
   h2 {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   p {
-    font-size: 12px;
+    font-size: 11px;
     color: #B7B7B7;
   }
 `

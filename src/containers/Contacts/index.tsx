@@ -6,13 +6,13 @@ const Contacts = () => {
   const { contactsList } = useSelector((state: RootReducer) => state.contacts)
 
   return (
-    <>
-      <ul>
-        {contactsList.map((x) => (
-          <Contact key={x.name} name={x.name} email={x.email} phone={x.phone} avatar={x.avatar} description={x.description}/>
-        ))}
-      </ul>
-    </>
+    <ul>
+      {contactsList.map((x) => (
+        <li key={x.name}>
+          <Contact name={x.name} email={x.email} phone={x.phone} avatar={x.avatar} description={x.description}/>
+        </li>
+      ))}
+    </ul>
   )
 }
 
