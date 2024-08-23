@@ -1,10 +1,10 @@
-import Form from "../../containers/Form"
 import Header from "../../components/Header"
+import FormAdd from "../../containers/FormAdd"
 
 const AddContactPage = () => (
   <>
     <Header isHome={false} />
-    <Form />
+    <FormAdd />
   </>
 )
 

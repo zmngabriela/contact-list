@@ -29,7 +29,7 @@ const ContactInfo = () => {
             <Icons>
               <img src={call} alt="Call" />
               <img src={chat} alt="Chat" />
-              <LinkToEdit to="/edit">
+              <LinkToEdit to={`/contact/${contact.name.replace(/\s+/g, '-').toLowerCase()}/edit`}>
                 <img src={edit} alt="Edit" />
               </LinkToEdit>
             </Icons>

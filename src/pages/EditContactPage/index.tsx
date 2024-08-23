@@ -1,3 +1,13 @@
-const EditContactPage = () => <h1>oi</h1>
+import Header from "../../components/Header"
+import FormEdit from "../../containers/FormEdit"
+
+const EditContactPage = () => {
+  return (
+    <>
+      <Header isHome={false} />
+      <FormEdit/>
+    </>
+  )
+}
 
 export default EditContactPage

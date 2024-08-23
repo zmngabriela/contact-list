@@ -48,6 +48,15 @@ const contactsSlice = createSlice({
         remove: (state, action: PayloadAction<string>) => {
             state.contactsList = state.contactsList.filter(x => x.name !== action.payload)
             alert('Contact was removed.')
+        },
+        edit: (state, action: PayloadAction<ContactClass>) => {
+            const nameFound = state.contactsList.find((c) => c.name.toLowerCase() === action.payload.name.toLowerCase())
+            const phoneFound = state.contactsList.find((c) => c.phone.toLowerCase() === action.payload.phone.toLowerCase())
+            if (nameFound || phoneFound) {
+                alert('Contact already added.')
+            } else {
+                console.log('terminar')
+            }
         }
     }
 })

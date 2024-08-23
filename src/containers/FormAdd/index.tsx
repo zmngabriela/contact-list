@@ -6,7 +6,7 @@ import { BtnContainer, FormStyle, Inputs, SubmitBtn } from "./styles"
 
 import sum from '../../assets/sum.png'
 
-const Form = () => {
+const FormAdd = () => {
   const dispatch = useDispatch()
   const [contact, setContact] = useState(new ContactClass("", "", "", "", ""))
 
@@ -54,4 +54,4 @@ const Form = () => {
   )
 }
 
-export default Form
+export default FormAdd
