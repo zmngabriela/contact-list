@@ -35,7 +35,7 @@ const ContactInfo = () => {
             </Icons>
           </EditContactContainer>
         ) : (
-          <h1>tchau</h1>
+          <h2>Contact was not found or was removed.</h2>
       )}
     </>
   )

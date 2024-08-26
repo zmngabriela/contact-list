@@ -22,7 +22,7 @@ export const HeaderActions = styled.div`
   select {
       border: none;
       font-weight: bold;
-      width: 40px;
+      width: 85px;
       color: #B7B7B7;
       font-family: "Poppins", sans-serif;
       font-weight: 400;

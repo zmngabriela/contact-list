@@ -2,18 +2,26 @@ import search from '../../assets/search.png'
 import plus from '../../assets/plus.png'
 import home from '../../assets/home.png'
 import { HeaderActions, HeaderContainer, LinkToAdd } from './styles'
+import { ChangeEvent } from 'react'
 
 type Props = {
-  isHome: boolean
+  isHome: boolean,
+  filterChange?: (filter: string) => void
 }
 
-const Header = ({ isHome }: Props) => {
+const Header = ({ isHome, filterChange }: Props) => {
+  const handleFilterChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    if (filterChange) {
+      filterChange(e.target.value)
+    }
+  }
+
   return (
     <>
       <HeaderContainer>
         <h1>Contacts</h1>
         <HeaderActions>
-          <select>
+          <select onChange={handleFilterChange}>
             <option value="all">All</option>
             <option value="favorites">Favorites</option>
           </select>

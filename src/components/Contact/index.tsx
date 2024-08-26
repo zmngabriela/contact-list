@@ -1,22 +1,27 @@
-import { useState } from "react"
+import { MouseEvent, useState } from "react"
 import { useDispatch } from "react-redux"
-import { remove } from "../../store/reducers/contacts"
 import ContactClass from "../../models/Contact"
+import { remove } from "../../store/reducers/contacts"
+import { updateFavorites } from "../../store/reducers/favorites"
 import * as S from "./styles"
 
 import dots from '../../assets/dots.png'
 import fav from '../../assets/fav.png'
-import nofav from '../../assets/fav.png'
+import nofav from '../../assets/nofav.png'
 import minus from '../../assets/minus.png'
 
 type Props = ContactClass
 
 const Contact = ({ name, avatar, description }: Props) => {
   const dispatch = useDispatch()
-
   const [isFav, setIsFav] = useState(false)
 
-  function toggleFavorite() {
+  const handleFavorites = (e: MouseEvent<HTMLImageElement>) => {
+    dispatch(updateFavorites({
+      name, avatar, description,
+      email: "",
+      phone: ""
+    }))
     setIsFav(!isFav)
   }
 
@@ -31,7 +36,7 @@ const Contact = ({ name, avatar, description }: Props) => {
         </S.ContactInfo>
       </S.ContactStart>
       <S.ContactEnd>
-        <img onClick={toggleFavorite} src={isFav ? fav : nofav} alt={isFav ? "Favorited" : "Not favorited"} />
+        <img onClick={handleFavorites} src={isFav ? fav : nofav} alt={isFav ? "Favorited" : "Not favorited"} />
         <img onClick={() => dispatch(remove(name))} src={minus} alt="Remove" />
       </S.ContactEnd>
     </S.ContactContainer>

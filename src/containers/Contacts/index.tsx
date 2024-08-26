@@ -1,13 +1,15 @@
-import { useSelector } from "react-redux"
-import { RootReducer } from "../../store"
 import Contact from "../../components/Contact"
+import ContactClass from "../../models/Contact"
 
-const Contacts = () => {
-  const { contactsList } = useSelector((state: RootReducer) => state.contacts)
+type Props = {
+  filteredContacts: ContactClass[]
+}
+
+const Contacts = ({ filteredContacts }: Props) => {
 
   return (
     <ul>
-      {contactsList.map((x) => (
+      {filteredContacts.map((x) => (
         <li key={x.name}>
           <Contact name={x.name} email={x.email} phone={x.phone} avatar={x.avatar} description={x.description}/>
         </li>

@@ -42,6 +42,11 @@ const FormAdd = () => {
             value={(contact as any)[item]}
             id={item}
             onChange={onChangeInput}
+            placeholder={
+              item === 'name' ? 'Enter your full name' :
+              item === 'phone' ? 'Ex.: +00 0000-0000' :
+              item === 'avatar' ? 'Enter your photo URL' : ''
+            }
           />
         </Inputs>
       ))}

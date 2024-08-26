@@ -10,21 +10,21 @@ const initialState: ContactsState = {
         {
             name: 'Gabriela Zimmermann',
             email: 'zmngabriela@gmail.com',
-            phone: '+34 605 145 486',
+            phone: '+34605145486',
             avatar: 'https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-person-gray-photo-placeholder-woman-in-shirt-on-gray-background-png-image_4826227.png',
             description: 'Front-end developer'
         },
         {
             name: 'Guilherme Coninch',
             email: 'guilhermekonnin@gmail.com',
-            phone: '+34 600 0098 626',
+            phone: '+346000098626',
             avatar: 'https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-person-gray-photo-placeholder-woman-in-shirt-on-gray-background-png-image_4826227.png',
             description: 'Real State Agent'
         },
         {
             name: 'Leonardo Cadore',
             email: 'leonardocadore@gmail.com',
-            phone: '+34 622 896 471',
+            phone: '+55622896471',
             avatar: 'https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-person-gray-photo-placeholder-woman-in-shirt-on-gray-background-png-image_4826227.png',
             description: 'Content creator'
         }
@@ -41,7 +41,12 @@ const contactsSlice = createSlice({
         if (nameFound || phoneFound) {
             alert('Contact already added.')
         } else {
-            state.contactsList.push(action.payload)
+            state.contactsList.push({
+              ...action.payload,
+              name: action.payload.name.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+              description: action.payload.description.charAt(0).toUpperCase() + action.payload.description.slice(1).toLowerCase(),
+              phone: action.payload.phone.replace(/\s+/g, '')
+            });
             alert('Contact was successfully added.')
         }
         },
@@ -49,17 +54,22 @@ const contactsSlice = createSlice({
             state.contactsList = state.contactsList.filter(x => x.name !== action.payload)
             alert('Contact was removed.')
         },
-        edit: (state, action: PayloadAction<ContactClass>) => {
-            const nameFound = state.contactsList.find((c) => c.name.toLowerCase() === action.payload.name.toLowerCase())
-            const phoneFound = state.contactsList.find((c) => c.phone.toLowerCase() === action.payload.phone.toLowerCase())
-            if (nameFound || phoneFound) {
-                alert('Contact already added.')
-            } else {
-                console.log('terminar')
-            }
+        edit: (state, action: PayloadAction<{oldName: string, newContact: ContactClass}>) => {
+          const index = state.contactsList.findIndex((x) => x.name.toLowerCase() === action.payload.oldName.toLowerCase())
+          if (index >= 0) {
+              state.contactsList[index] = {
+                ...action.payload.newContact,
+                name: action.payload.newContact.name.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+                description: action.payload.newContact.description.charAt(0).toUpperCase() + action.payload.newContact.description.slice(1).toLowerCase(),
+                phone: action.payload.newContact.phone.replace(/\s+/g, '')
+              }
+              alert('Contact was sucessfully edited.')
+          } else if ((index === -1)) {
+              alert('Contact was not found.')
+          }
         }
     }
 })
 
-export const { add, remove } = contactsSlice.actions
+export const { add, remove, edit } = contactsSlice.actions
 export default contactsSlice.reducer
