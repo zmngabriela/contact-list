@@ -8,25 +8,25 @@ type ContactsState = {
 const initialState: ContactsState = {
     contactsList: [
         {
-            name: 'Gabriela Zimmermann',
-            email: 'zmngabriela@gmail.com',
-            phone: '+34605145486',
+            name: 'Maria Silva',
+            email: 'maria@gmail.com',
+            phone: '+5599895665',
             avatar: 'https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-person-gray-photo-placeholder-woman-in-shirt-on-gray-background-png-image_4826227.png',
             description: 'Front-end developer'
         },
         {
-            name: 'Guilherme Coninch',
-            email: 'guilhermekonnin@gmail.com',
-            phone: '+346000098626',
+            name: 'Jose Pereira',
+            email: 'jose@gmail.com',
+            phone: '+55698756598',
             avatar: 'https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-person-gray-photo-placeholder-woman-in-shirt-on-gray-background-png-image_4826227.png',
-            description: 'Real State Agent'
+            description: 'Back-end developer'
         },
         {
-            name: 'Leonardo Cadore',
-            email: 'leonardocadore@gmail.com',
+            name: 'Leonardo Silva',
+            email: 'leonardo@gmail.com',
             phone: '+55622896471',
             avatar: 'https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-person-gray-photo-placeholder-woman-in-shirt-on-gray-background-png-image_4826227.png',
-            description: 'Content creator'
+            description: 'Full stack developer'
         }
     ]
 }
