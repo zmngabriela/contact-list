@@ -35,7 +35,7 @@ export const Icons = styled.div`
   gap: 24px;
 
   img {
-    width: 24px;
+    width: 16px;
 
     &:hover {
         transform: scale(1.2);
