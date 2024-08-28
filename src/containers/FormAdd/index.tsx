@@ -1,14 +1,15 @@
 import { ChangeEvent, FormEvent, useState } from "react"
 import { useDispatch } from "react-redux"
+
 import ContactClass from "../../models/Contact"
 import { add } from "../../store/reducers/contacts"
-import { BtnContainer, FormStyle, Inputs, SubmitBtn } from "./styles"
+import * as S from "./styles"
 
 import sum from '../../assets/sum.png'
 
 const FormAdd = () => {
   const dispatch = useDispatch()
-  const [contact, setContact] = useState(new ContactClass("", "", "", "", ""))
+  const [contact, setContact] = useState(new ContactClass('', '', '', '', ''))
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -29,10 +30,10 @@ const FormAdd = () => {
   }
 
   return (
-    <FormStyle onSubmit={handleSubmit}>
+    <S.Form onSubmit={handleSubmit}>
       <h2>Add new contact</h2>
       {Object.keys(contact).map((item) => (
-        <Inputs key={item}>
+        <S.Inputs key={item}>
           <label htmlFor={item}>
             {item.charAt(0).toUpperCase() + item.slice(1)}
           </label>
@@ -48,14 +49,14 @@ const FormAdd = () => {
               item === 'avatar' ? 'Enter your photo URL' : ''
             }
           />
-        </Inputs>
+        </S.Inputs>
       ))}
-      <BtnContainer>
-        <SubmitBtn type="submit">
+      <S.BtnContainer>
+        <S.SubmitBtn type="submit">
           <img src={sum} alt="Add" />
-        </SubmitBtn>
-      </BtnContainer>
-    </FormStyle>
+        </S.SubmitBtn>
+      </S.BtnContainer>
+    </S.Form>
   )
 }
 

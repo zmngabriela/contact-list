@@ -1,12 +1,11 @@
-import Contact from "../../components/Contact"
 import ContactClass from "../../models/Contact"
+import Contact from "../../components/Contact"
 
 type Props = {
   filteredContacts: ContactClass[]
 }
 
 const Contacts = ({ filteredContacts }: Props) => {
-
   return (
     <ul>
       {filteredContacts.map((x) => (

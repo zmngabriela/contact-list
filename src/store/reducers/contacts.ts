@@ -7,27 +7,34 @@ type ContactsState = {
 
 const initialState: ContactsState = {
     contactsList: [
-        {
-            name: 'Maria Silva',
-            email: 'maria@gmail.com',
-            phone: '+5599895665',
-            avatar: 'https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-person-gray-photo-placeholder-woman-in-shirt-on-gray-background-png-image_4826227.png',
-            description: 'Front-end developer'
-        },
-        {
-            name: 'Jose Pereira',
-            email: 'jose@gmail.com',
-            phone: '+55698756598',
-            avatar: 'https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-person-gray-photo-placeholder-woman-in-shirt-on-gray-background-png-image_4826227.png',
-            description: 'Back-end developer'
-        },
-        {
-            name: 'Leonardo Silva',
-            email: 'leonardo@gmail.com',
-            phone: '+55622896471',
-            avatar: 'https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-person-gray-photo-placeholder-woman-in-shirt-on-gray-background-png-image_4826227.png',
-            description: 'Full stack developer'
-        }
+      {
+        name: 'Emily Johnson',
+        email: 'emily.johnson@example.co.uk',
+        phone: '+442083661177',
+        avatar: 'https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-person-gray-photo-placeholder-woman-in-shirt-on-gray-background-png-image_4826227.png',
+        description: 'Digital Marketer'
+      },
+      {
+        name: 'Oliver Smith',
+        email: 'oliver.smith@example.co.uk',
+        phone: '+441632960961',
+        avatar: 'https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-person-gray-photo-placeholder-woman-in-shirt-on-gray-background-png-image_4826227.png',
+        description: 'UX/UI Designer'
+      },
+      {
+        name: 'Charlotte Brown',
+        email: 'charlotte.brown@example.co.uk',
+        phone: '+441632960962',
+        avatar: 'https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-person-gray-photo-placeholder-woman-in-shirt-on-gray-background-png-image_4826227.png',
+        description: 'Software Engineer'
+      },
+      {
+        name: 'Harry Davis',
+        email: 'harry.davis@example.co.uk',
+        phone: '+442083661178',
+        avatar: 'https://png.pngtree.com/png-vector/20220611/ourmid/pngtree-person-gray-photo-placeholder-woman-in-shirt-on-gray-background-png-image_4826227.png',
+        description: 'Project Manager'
+      }
     ]
 }
 

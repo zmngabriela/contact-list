@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const HeaderContainer = styled.header`
+export const Container = styled.header`
   height: 50px;
   width: 100%;
   display: grid;
@@ -14,7 +14,7 @@ export const HeaderContainer = styled.header`
   }
 `
 
-export const HeaderActions = styled.div`
+export const Actions = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,7 +39,7 @@ export const HeaderActions = styled.div`
     }
 `
 
-export const LinkToAdd = styled(Link)`
+export const LinkTo = styled(Link)`
   display: flex;
   justify-contents: center;
 `

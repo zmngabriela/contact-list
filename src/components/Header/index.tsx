@@ -1,8 +1,9 @@
+import { ChangeEvent } from 'react'
+import * as S from './styles'
+
 import search from '../../assets/search.png'
 import plus from '../../assets/plus.png'
 import home from '../../assets/home.png'
-import { HeaderActions, HeaderContainer, LinkToAdd } from './styles'
-import { ChangeEvent } from 'react'
 
 type Props = {
   isHome: boolean,
@@ -18,25 +19,25 @@ const Header = ({ isHome, filterChange }: Props) => {
 
   return (
     <>
-      <HeaderContainer>
+      <S.Container>
         <h1>Contacts</h1>
-        <HeaderActions>
+        <S.Actions>
           <select onChange={handleFilterChange}>
             <option value="all">All</option>
             <option value="favorites">Favorites</option>
           </select>
           <img src={search} alt="Search" />
           {isHome ? (
-            <LinkToAdd to="/add">
+            <S.LinkTo to="/add">
               <img src={plus} alt="Add" />
-            </LinkToAdd>
+            </S.LinkTo>
           ) : (
-            <LinkToAdd to="/">
+            <S.LinkTo to="/">
               <img src={home} alt="Add" />
-            </LinkToAdd>
+            </S.LinkTo>
           )}
-        </HeaderActions>
-      </HeaderContainer>
+        </S.Actions>
+      </S.Container>
     </>
   )
 }

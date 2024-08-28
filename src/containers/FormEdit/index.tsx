@@ -1,12 +1,13 @@
 import { ChangeEvent, FormEvent, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { BtnContainer, FormStyle, Inputs, SubmitBtn } from "../FormAdd/styles"
-
-import save from '../../assets/save.png'
 import { useNavigate, useParams } from "react-router-dom"
+
+import ContactClass from "../../models/Contact"
 import { RootReducer } from "../../store"
 import { edit } from "../../store/reducers/contacts"
-import ContactClass from "../../models/Contact"
+import * as S from "../FormAdd/styles"
+
+import save from '../../assets/save.png'
 
 const FormEdit = () => {
   const dispatch = useDispatch()
@@ -14,6 +15,7 @@ const FormEdit = () => {
 
   const { name } = useParams<{name: string}>()
   const contactsList = useSelector((state: RootReducer) => state.contacts.contactsList)
+
   const formatUrl = (name: string) => name.replace(/-/g, ' ').toLowerCase()
   const contactFound = contactsList.find(x => formatUrl(x.name) === formatUrl(name || ''))
   const [contact, setContact] = useState<ContactClass | undefined>(contactFound)
@@ -45,18 +47,19 @@ const FormEdit = () => {
   }
 
   return (
-    <FormStyle onSubmit={handleSubmit}>
+    <S.Form onSubmit={handleSubmit}>
       <h2>Edit contact</h2>
         {contact ? (
           <>
             {Object.keys(contact).map((item) => (
-              <Inputs key={item}>
+              <S.Inputs key={item}>
                 <label htmlFor={item}>
                   {item.charAt(0).toUpperCase() + item.slice(1)}
                 </label>
                 <input
                   type="text"
                   name={item}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   value={(contact as any)[item]}
                   id={item}
                   onChange={onChangeInput}
@@ -66,16 +69,16 @@ const FormEdit = () => {
                     item === 'avatar' ? 'Enter your photo URL' : ''
                   }
                 />
-              </Inputs>
+              </S.Inputs>
             ))}
           </>
         ) : <p>Contact was not found or has been removed.</p>}
-      <BtnContainer>
-        <SubmitBtn type="submit">
+      <S.BtnContainer>
+        <S.SubmitBtn type="submit">
           <img src={save} alt="Save" />
-        </SubmitBtn>
-      </BtnContainer>
-    </FormStyle>
+        </S.SubmitBtn>
+      </S.BtnContainer>
+    </S.Form>
   )
 }
 

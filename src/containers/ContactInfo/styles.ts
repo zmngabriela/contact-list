@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const EditContactContainer = styled.div`
+export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@ export const EditContactContainer = styled.div`
   }
 `
 
-export const EditContactInfo = styled(EditContactContainer)`
+export const Info = styled(Container)`
   font-size: 14px;
   margin: 16px 0 32px 0;
 `
@@ -43,6 +43,6 @@ export const Icons = styled.div`
   }
 `
 
-export const LinkToEdit = styled(Link)`
+export const LinkTo = styled(Link)`
 
 `

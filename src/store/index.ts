@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+
 import contactsReducer from "./reducers/contacts";
 import favoritesReducer from "./reducers/favorites";
 
@@ -10,3 +11,4 @@ export const store = configureStore({
 })
 
 export type RootReducer = ReturnType<typeof store.getState>
+

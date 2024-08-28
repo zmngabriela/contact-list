@@ -1,5 +1,6 @@
 import { MouseEvent, useState } from "react"
 import { useDispatch } from "react-redux"
+
 import ContactClass from "../../models/Contact"
 import { remove } from "../../store/reducers/contacts"
 import { updateFavorites } from "../../store/reducers/favorites"
@@ -16,6 +17,7 @@ const Contact = ({ name, avatar, description }: Props) => {
   const dispatch = useDispatch()
   const [isFav, setIsFav] = useState(false)
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleFavorites = (e: MouseEvent<HTMLImageElement>) => {
     dispatch(updateFavorites({
       name, avatar, description,
